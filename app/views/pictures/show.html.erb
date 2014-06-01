@@ -9,6 +9,15 @@
   <strong>Name:</strong>
   <%= @picture.name %>
 </p>
+<%= link_to 'New Comment', new_picture_comment_path(@picture) %>
+<div class="commentsContainer">
+	<% @picture.comments.each do |comment| %>
+      <div class="comment">
+        <p><%= comment.content %></p>
+        <p><%= comment.user.email %></p>
+      </div>
+    <% end %>
+</div>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
