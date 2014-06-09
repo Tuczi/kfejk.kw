@@ -15,8 +15,10 @@
         <td><%= image_tag picture.data, size: "640x480" %></td>
         <td><%= picture.name %></td>
         <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% if current_admin %>
+          <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+          <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
       </tr>
     <% end %>
   </tbody>

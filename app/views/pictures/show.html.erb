@@ -15,9 +15,13 @@
       <div class="comment">
         <p><%= comment.content %></p>
         <p><%= comment.user.email %></p>
+	<% if current_admin %>
+	  <p> <%= link_to 'Destroy', picture_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	<% end %>
       </div>
     <% end %>
 </div>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<% if current_admin %>
+  <%= link_to 'Edit', edit_picture_path(@picture) %> |
+  <%= link_to 'Back', pictures_path %>
+<% end %>

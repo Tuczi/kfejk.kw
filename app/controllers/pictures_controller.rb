@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_admin!, only: [:edit, :update, :destroy]
+ 
 
   # GET /pictures
   # GET /pictures.json
@@ -11,6 +13,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+	  
   end
 
   # GET /pictures/new
@@ -73,4 +76,5 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:data, :name)
     end
+
 end
