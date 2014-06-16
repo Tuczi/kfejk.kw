@@ -3,22 +3,22 @@
 <table>
   <thead>
     <tr>
-      <th>Data</th>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th colspan="5">Pictures</th>
+      <!--th>Name</th-->
+      <!--th colspan="3"></th-->
     </tr>
   </thead>
 
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= image_tag picture.data, size: "640x480" %></td>
-        <td><%= picture.name %></td>
-        <td><%= link_to 'Show', picture %></td>
+	<td><h1><%= picture.name %></h1></td>
 	<% if current_admin %>
-          <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-          <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+	  <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	<% end %>
+	</tr><tr>
+	<td><%= link_to image_tag(picture.data, :size => "200x200"), picture %></td>
       </tr>
     <% end %>
   </tbody>

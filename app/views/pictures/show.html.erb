@@ -13,8 +13,8 @@
 <div class="commentsContainer">
 	<% @picture.comments.each do |comment| %>
       <div class="comment">
-        <p><%= comment.content %></p>
-        <p><%= comment.user.email %></p>
+	<p><%= comment.content %></p>
+	<p><%= comment.user.email %></p>
 	<% if current_admin %>
 	  <p> <%= link_to 'Destroy', picture_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 	<% end %>

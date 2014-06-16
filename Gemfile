@@ -44,3 +44,5 @@ gem 'nested_scaffold'
 if Gem.win_platform? then
 	gem 'tzinfo-data', platforms: [:mingw, :mswin]
 end
+
+gem 'paperclip'
